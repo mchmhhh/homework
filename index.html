@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0 auto;
+        }
+        @keyframes animation1 {
+            0%{
+                transform: rotate(0deg);
+            }
+            100%{
+                transform: rotate(360deg);
+            }
+        }
+        .kuwo{
+            padding-left: 20px;
+        }
+        ul{
+            list-style: none;
+            display: flex;
+            align-items:center;
+            justify-content:center;
+        }
+        li{
+            display: inline-block;
+            padding-left: 20px;
+        }
+
+        a{
+            text-decoration: none;
+            color: white;
+        }
+        #navigation{
+            width: 1200px;
+            height: 50px;
+            background: #181818;
+            display: flex;
+            align-items:center;
+            justify-content:center;
+        }
+        .first_list li:nth-child(1) a{
+            color: orange;
+        }
+        .app{
+            margin-left: 30px;
+        }
+        .second_list li a{ 
+            font-size: 10px;
+            color: lightgrey;
+        }
+        .second_list li span{
+            background: url(./images/tubiao.png)no-repeat -230px -24px;
+            padding-left: 20px;
+        }
+        .third_list li{
+            font-size: 10px;
+        }
+        .search{
+            padding-right: 30px;
+            position: relative;
+        }
+        .search p{
+            position: absolute;
+            top: 5px;
+            left: 5px;
+            color:gray;
+            font-size: 5px;
+        }
+        #musicPlay{
+            width: 1200px;
+            height: 600px;
+        }
+        .song{
+            width: 700px;
+            float: left;
+            text-align: center;
+        }
+        .message{
+            margin-top: 50px;
+        }
+        .message p:nth-child(1){
+            font-size: 25px;
+        }
+        .message p:nth-child(2){
+            font-size: 10px;
+            color: lightgrey;
+            margin-top: 30px;
+            margin-bottom: 10px;
+        }
+        .message a{
+            color: black;
+        }
+        .message span{
+            padding-right: 10px;
+            color: orange;
+        }
+        .message p:nth-child(3){
+            font-size: 10px;
+        }
+        .message div{
+            border-bottom: 2px solid lightgray;
+            margin-top: 10px;
+            margin-bottom: 20px;
+            margin-left: 50px;
+        }
+        .lyric{
+            font-size: 10px;
+            height: 413px;
+            margin-left:10px;
+            overflow-y:scroll;
+        }
+        ::-webkit-scrollbar {
+            width: 5px;
+        }
+        ::-webkit-scrollbar-thumb {
+            -webkit-box-shadow: inset 0 0 1px rgba(136, 136, 136, 0.3);
+            background-color:lightgray;
+        }
+        .lyric p{
+            margin-bottom: 10px;
+        }
+        .lyric span{
+            font-size: 15px;
+            color: orange;
+        }
+        .playControl{
+            width: 500px;
+            height: 600px;
+            float: left;
+        }
+        .record{
+            width: 300px;
+            height: 300px;
+            position: relative;
+        }
+        .circle_1{
+            width: 300px;
+            height: 300px;
+            border: 1px solid lightgrey;
+            border-radius: 50%;
+            position: absolute;
+            top: 48px;
+            left: -50px;
+        }
+        .xyy{
+            width: 290px;
+            height: 290px;
+            background: url(./images/xyy.jpg) no-repeat;
+            background-size:cover;
+            position: absolute;
+            top: 53px;
+            left: -44px;
+            border-radius: 50%;
+            animation: animation1 5s linear infinite;
+        }
+        .circle_2{
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            border: 1px solid grey;
+            position: absolute;
+            top: 175px;
+            left: 76px;
+            background-color: rgba(255, 255, 255, 0.4);
+            animation: animation1 5s linear infinite;
+        }
+        .circle_3{
+            width: 20px;
+            height: 20px;
+            background-color: white;
+            border-radius: 50%;
+            position: absolute;
+            top: 190px;
+            left: 92px;
+            animation: animation1 10s linear infinite;
+        }
+        .playbtn{
+            width: 40px;
+            height: 40px;
+            background: url(./images/tubiao2.jpg) -110px 0px;
+            margin-left: 40px;
+            margin-top: 70px;
+            float: left;
+        }
+        .playbtn:hover{
+            background-position: -162px 0px;
+        }
+        .stopbtn{
+            width: 40px;
+	        height: 40px;
+            margin-left: 40px;
+            margin-top: 70px;
+            float: left;
+            background: url(./images/tubiao2.jpg) -207px 0px;
+        }
+        .stopbtn:hover{
+            background-position: -207px -48px;
+        }
+        .processBar{
+            position: relative;
+            float: left;
+            margin-left: 20px;
+            margin-top: 90px;
+        }
+        .processBtn{
+            width: 10px;
+            height: 10px;
+            position: absolute;
+            background:url(./images/tubiao2.jpg) -23px 0px;
+            top: -3px;
+            left: 0;
+        }
+        .processBar_1{
+            width: 320px;
+            height: 4px;
+            border-radius: 2px;
+            float: left;
+            position: absolute;
+            background-color: lightgray;
+        }
+        .processBar_2{
+            width: 0px;
+            height: 4px;
+            border-radius: 2px;
+            position: absolute;
+            background-color: yellow;
+        }
+        .playTime{
+            font-size: 10px;
+            float: left;
+            margin-left: 330px;
+            margin-top: 85px;
+        }
+        .volume{
+            width: 20px;
+            height: 20px;
+            float: left;
+            background: url(./images/tubiao2.jpg)-45px 0px;
+            margin-top: -15px;
+            margin-left: 400px;
+        }
+        .volume:hover{
+            background-position: -70px 0px;
+        }
+        .download{
+            width: 200px;
+            height: 45px;
+            background: url(./images/tubiao2.jpg) 0px -43px;
+            margin-top: 200px;
+            position: relative;
+        }
+        .down{
+            width: 18px;
+            height: 18px;
+            float: left;
+            position: absolute;
+            top: 15px;
+            left: 30px;
+            background: url(./images/tubiao2.jpg) 0px 0px;
+        }
+        .download p{
+            position: absolute;
+            top: 13px;
+            left: 50px;
+        }
+        #commentary{
+            width: 800px;
+            height: 600px;
+            margin-top: 30px;
+            position: relative;
+        }
+        .comment p{
+            font-size: 10px;
+            margin-left: 20px;
+        }
+        .count{
+            font-weight: lighter;
+            margin-left: 10px;
+        }
+        .sharp{
+            border-bottom: 2px solid lightgray;
+            margin-top: 15px;
+        }
+        .profile{
+            width: 50px;
+            height: 50px;
+            margin-left: 0px;
+            margin-top: 20px;
+            float: left;
+        }
+        .input textarea{
+            width: 730px;
+            height: 100px;
+            float: left;
+            color: darkgrey;
+            border: lightgrey 1px solid;
+            margin-left: 10px;
+            margin-top: 20px;
+        }
+        .smile{
+            float: right;
+        }
+        .number{
+            font-size: 10px;
+            float: left;
+            margin-right: 20px;
+            margin-top: 10px;
+        }
+        .submit{
+            width: 58px;
+            height: 28px;
+            background-color: orange;
+            margin-top: 5px;
+            float: left;
+            color: white;
+            border: 0px;
+        }
+        .wonderful{
+            font-size: 10px;
+            margin-left: 20px;
+            margin-top: 200px;
+        }
+        .sharp_1{
+            border-bottom: 2px solid lightgray;
+            margin-top: 20px;
+        }
+        .floors{
+            width: 800px;
+            height: 300px;
+            margin-top: 20px;
+            position: relative;
+        }
+        .first_floor{
+            width: 800px;
+            height: 98px;
+            border-bottom: 2px dashed darkgray;
+            position: absolute;
+            top: 0px;
+        }
+        .second_floor{
+            width: 800px;
+            height: 98px;
+            border-bottom: 2px dashed darkgray;
+            position: absolute;
+            top: 100px;
+        }
+        .third_floor{
+            width: 800px;
+            height: 98px;
+            border-bottom: 2px dashed darkgray;
+            position: absolute;
+            top: 200px;
+            opacity: 0;
+        }
+        .profile_1{
+            width: 50px;
+            height: 50px;
+            float: left;
+            background: url(./images/kuwo.jpg);
+            position: absolute;
+            top: 20px;
+            left:0px;
+            background-size: 50px 50px;
+        }
+        .profile_2{
+            width: 50px;
+            height: 50px;
+            float: left;
+            position: absolute;
+            top: 20px;
+            left:0px;
+        }
+        .inner{
+           position: absolute;
+           font-size: 10px;
+           width: 720px;
+           top: 18px;
+           left: 60px;
+        }
+        .footer{
+            width: 200px;
+            margin-top: 30px;
+        }
+
+        .footer ul li div{
+            width: 20px;
+            height: 20px;
+            background-color:lightgray;
+            line-height: 20px;
+            font-size: 10px;
+            border-radius: 50%;
+            text-align: center;
+        }
+        .footer ul li:nth-child(2) div{
+            background-color:orange;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div id="navigation">
+        <img class="kuwo" src=".\images\music.jpg">
+
+        <ul class="first_list">
+            <li>
+                <a href="#"><span></span>首页</a>
+            </li>
+            <li>
+                <a href="#">榜单</a>
+            </li>
+            <li>
+                <a href="#">歌手</a>
+            </li>
+        </ul>
+
+        <a class="app" href="#">下载酷我客户端</a>
+
+        <ul class="second_list">
+            <li>
+                <a href="#"><span></span>美女秀</a>
+            </li>
+            <li>
+                <a href="#"><span></span>酷我耳机</a>
+            </li>
+            <li>
+                <a href="#"><span></span>VIP会员</a>
+            </li>
+            <li>
+                <a href="#"><span></span>i听</a>
+            </li>
+        </ul>
+
+        <ul class="third_list">
+            <li>
+                <a href="#">更多服务</a>
+            </li>
+            <li>
+                <a href="#">登录</a>
+            </li>
+            <li>
+                <a href="#">^</a>
+            </li>
+        </ul>
+
+        <div class="search">
+            <img src=".\images\search.png">
+            <p class="find">找到好音乐</p>
+        </div>
+    </div>
+    <div id="musicPlay">
+        <div class="song">
+            <audio autoplay="autoplay" id="mymusic">
+            <source src="./images/小跳蛙.mp3" type="audio/mp3"></audio>
+            <div class="message">
+                <p>喜羊羊</p>
+                <p>专辑：<span>儿歌大全</span>歌手：<span>华语群星</span><a href="#">分享</a><span class="comments"></span><span>评论</span></p>
+                <p>上传时间：2015-10-02歌曲来源：民大相思湖网球社</p>
+                <div></div>
+            </div>
+            <div class="lyric">
+                <p>喜羊羊 美羊羊</p>
+                <p>懒羊羊 沸羊羊</p>
+                <p>慢羊羊 软绵绵</p>
+                <p>红太狼 灰太狼</p>
+                <p>别看我只是一只羊</p>
+                <p>绿草也为我变的更香</p>
+                <p>天空因为我变的更蓝</p>
+                <p>白云也为我变的柔软</p>
+                <P>别看我只是一只羊</P>
+                <p>羊儿的聪明难以想像</p>
+                <P>天再高心情一样奔放</P>
+                <p>每天都追赶太阳</p>
+                <p><span>有什么难题 去牵绊我 都不会去心伤</span></p>
+                <p>有什么危险 在我面前 也不会去慌乱</p>
+                <p>就算有狼群 把我追捕 也当做游戏一场</p>
+                <p>在什么时间 都爱开心 笑容都会飞翔</p>
+                <p>就算会摔倒 站得起来 永远不会沮丧</p>
+                <p>在所有天气 拥有叫人 大笑的力量</p>
+                <p>虽然我只是羊</p>
+                <p>喜羊羊 美羊羊</p>
+                <p>懒羊羊 沸羊羊</p>
+                <p>慢羊羊 软绵绵</p>
+                <p>红太狼 灰太狼</p>
+                <p>别看我只是一只羊</p>
+                <p>羊儿的聪明难以想像</p>
+                <P>天再高心情一样奔放</P>
+                <p>每天都追赶太阳</p>
+                <p>有什么难题 去牵绊我 都不会去心伤</p>
+                <p>有什么危险 在我面前 也不会去慌乱</p>
+                <p>就算有狼群 把我追捕 也当做游戏一场</p>
+                <p>在什么时间 都爱开心 笑容都会飞翔</p>
+                <p>就算会摔倒 站得起来 永远不会沮丧</p>
+                <p>在所有天气 拥有叫人 大笑的力量</p>
+                <p>虽然我只是羊</p>
+                <p>有什么难题 去牵绊我 都不会去心伤</p>
+                <p>有什么危险 在我面前 也不会去慌乱</p>
+                <p>就算有狼群 把我追捕 也当做游戏一场</p>
+                <p>在什么时间 都爱开心 笑容都会飞翔</p>
+                <p>就算会摔倒 站得起来 永远不会沮丧</p>
+                <p>在所有天气 拥有叫人 大笑的力量</p>
+                <p>虽然我只是羊</p>
+            </div>
+        </div>
+        <div class="playControl">
+            <div class="record">
+                <div class="circle_1"></div>
+                <div class="xyy"></div>
+                <div class="circle_2"></div>
+                <div class="circle_3"></div>
+            </div>
+            <div class="process">
+                <div class="playbtn"></div>
+                <div class="processBar">
+                    <div class="processBar_1"></div>
+                    <div class="processBar_2"></div>
+                    <div class="processBtn"></div>
+                </div>
+                <p class="playTime">00:00</p>
+                <div class="volume"></div>
+            </div>
+            <div class="download">
+                <div class="down"></div>
+                <p>免费下载这首歌</p>
+            </div>
+        </div>
+    </div>
+    <div id="commentary">
+        <div class="comment">
+            <p>评论<span class="count">1703条评论</span></p>
+            <div class="sharp"></div>
+        </div>
+        <div class="input">
+            <img src="./images/xyy.jpg" class="profile">
+            <textarea>分享你的音乐见解</textarea>
+        </div>
+        <div class="smile">
+            <div class="number">已输入0个字</div>
+            <button class="submit">评论</button>
+        </div>
+        <p class="wonderful">精彩评论</p>
+        <div class="sharp_1"></div>
+        <div class="floors">
+            <div class="first_floor">
+                <div class="profile_1"></div>
+                <div class="inner">
+                    <div style="color: orange; margin-bottom: 10px;">Forget<span style="float: right;color: black;">分享</span></div>
+                    <div style="margin-bottom: 15px;">我喜欢很多歌曲，喜欢过很多唱歌的人，那些有时不是我的爱好，已经成为了我那段青春的回忆，我现在可以很骄傲</div>
+                    <div style="font-weight: lighter;">2017-06-03 16:58:02<span style="float: right;"><a href="#" style="color: black; font-weight: normal;">回复</a></span></div>
+                </div>
+            </div>
+            <div class="second_floor">
+                <div class="profile_1"></div>
+                <div class="inner">
+                    <div style="color: orange; margin-bottom: 10px;">亚里士多德<span style="float: right; color: black;">分享</span></div>
+                    <div style="margin-bottom: 15px;">学校晚会表演这首歌</div>
+                    <div style="font-weight: lighter;">2017-05-14 16:16:53<span style="float: right;"><a href="#" style="color: black; font-weight: normal;">回复</a></span></div>
+                </div>
+            </div>
+            <div class="third_floor">
+                <img class="profile_2">
+                <div class="inner">
+                    <div class="username" style="color: orange; margin-bottom: 10px;"><span style="float: right; color: black;">分享</span></div>
+                    <div class="mcomment" style="margin-bottom: 15px;"></div>
+                    <div class="time" style="font-weight: lighter;"><span style="float: right;"><a href="#" style="color: black; font-weight: normal; margin-right: 10px;">删除</a><a href="#" style="color: black; font-weight: normal;">回复</a></span></div>
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            <ul>
+                <li><div><</div></li>
+                <li><div>1</div></li>
+                <li><div>2</div></li>
+                <li><div>3</div></li>
+                <li><span>…</span></li>
+                <li><div>17</div></li>
+                <li><div>></div></li>
+            </ul>
+        </div>
+    </div>
+</body>
+<script>
+    var playchange = document.getElementsByClassName("playbtn")[0];
+    var mymusic = document.getElementById("mymusic");
+    var txt = document.getElementsByClassName("playTime")[0];
+    var process = document.getElementsByClassName("processBar_2")[0];
+    var processbtn = document.getElementsByClassName("processBtn")[0];
+    var sound = document.getElementsByClassName("volume")[0];
+    function curTime(){
+        var timer=setInterval(function(){
+            var current=parseInt(mymusic.currentTime);
+            var sec=current;
+            minute=parseInt(sec/60);
+            if(current%60<10){
+                txt.innerHTML="0"+minute+":0"+current%60;
+            }else{
+                txt.innerHTML="0"+minute+":"+current%60;
+            }
+        },1000);
+    }
+    function process1(){
+        var length = mymusic.duration;
+        var timer = setInterval(function(){
+        var cur = mymusic.currentTime;
+        process.style.width= ""+parseFloat(cur/length)*320+"px";
+        processbtn.style.left= ""+parseFloat(cur/length)*320+"px";
+        },100);
+    }
+    playchange.onclick=function(){
+    if(mymusic.paused){
+        playchange.className = "stopbtn"
+        mymusic.play();
+        curTime();
+        process1();
+    }
+    else{
+        playchange.className = "playbtn"
+        mymusic.pause();
+        process1();
+      }
+    }
+    sound.onclick=function(){
+      if(mymusic.volume>0){
+        mymusic.volume=0;
+      }else{
+        mymusic.volume=0.25;
+      }
+    }
+    var comment = document.getElementsByClassName("submit")[0];
+    var profile = document.getElementsByClassName("profile")[0];
+    console.log(profile.style.background);
+    var profile_2 = document.getElementsByClassName("profile_2")[0];
+    var first_floor = document.getElementsByClassName("first_floor")[0];
+    var second_floor = document.getElementsByClassName("second_floor")[0];
+    var third_floor = document.getElementsByClassName("third_floor")[0];
+    var username = document.getElementsByClassName("username")[0];
+    var mcomment = document.getElementsByClassName("mcomment")[0];
+    var minner = document.getElementsByTagName("textarea")[0];
+    var timer =  function () {
+        var yy = new Date().getFullYear();
+        var mm = new Date().getMonth() + 1;
+        var dd = new Date().getDate();
+        var hh = new Date().getHours();
+        var mf = new Date().getMinutes() < 10 ? '0' + new Date().getMinutes():new Date().getMinutes();
+        var ss = new Date().getSeconds() < 10 ? '0' + new Date().getSeconds():new Date().getSeconds();
+        dateTime = yy + '-' + mm + '-' + dd + ' ' + hh + ':' + mf + ':' + ss;
+        return dateTime;
+    }
+    var time = document.getElementsByClassName("time")[0];
+    var datetime = timer();
+    comment.onclick=function(){
+        var inner = {
+            "profile" : ""+profile.src,
+            "username" : "mchmhhh",
+            "mcomment" : ""+minner.innerHTML,
+            "time" : ""+datetime
+        }
+        var innerStr = JSON.stringify(inner);
+        localStorage['inner'] = innerStr;
+        var nfloor = JSON.parse(localStorage.getItem('inner'));
+        profile_2.src=nfloor.profile;
+        username.innerHTML+=nfloor.username;
+        mcomment.innerHTML+=nfloor.mcomment;
+        time.innerHTML += nfloor.time;
+        third_floor.style.opacity = "1";
+        third_floor.style.top = "0px";
+        first_floor.style.top = "100px";
+        second_floor.style.top = "200px";
+    }
+</script>
+</html>

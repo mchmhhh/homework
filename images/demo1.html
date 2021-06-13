@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0 auto;
+        }
+        ul{
+            list-style: none;
+        }
+        li{
+            display: inline-block;
+        }
+
+        a{
+            text-decoration: none;
+            color: white;
+        }
+        .kuwo{
+            padding-left: 30px;
+        }
+        #container{
+            width: 1300px;
+            height: 50px;
+            background: #181818;
+            display: flex;
+            align-items:center;
+            justify-content:center;
+        }
+        ul li{
+            padding-left: 10px;
+        }
+        .first_list{
+            font-size: 20px;
+        }
+        .first_list li:nth-child(1) a:nth-of-type(1){
+            color: orange;
+        }
+        .second_list a{
+            color: lightgrey;
+        }
+        .second_list li span{
+            background: url(./images/tubiao.png)no-repeat -230px -24px;
+            padding-left: 15px;
+        }
+        .app{
+            font-size: 20px;
+            padding-left: 20px;
+        }
+        .search{
+            position: relative;
+            padding-right: 30px;
+            top: 10px;
+        }
+        .find{
+            color:gray;
+            position: relative;
+            font-size: 5px;
+            top: -25px;
+            left: 5px;
+        }
+        #music{
+            width: 1300px;
+            height: 700px;
+        }
+        .lyric{
+            width: 799px;
+            height: 100%;
+            float: left;
+        }
+        .play{
+            width: 499px;
+            border: 1px solid red;
+            height:100%;
+            float: right;
+        }
+        .record{
+            margin-top: 50px;
+            margin-left: -60px;
+        }
+        .circle_1{
+            width: 300px;
+            height: 300px;
+            border: 1px solid lightgrey;
+            border-radius: 50%;
+        }
+        .xyy{
+            width: 290px;
+            height: 290px;
+            background-image: url(./images/xyy.jpg);
+            margin-top: -295px; 
+            border-radius: 50%;
+            overflow: hidden;
+        }
+        .circle_2{
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            border: 1px solid grey;
+            margin-top: -170px;
+            background-color: rgba(255, 255, 255, 0.4);
+        }
+        .circle_3{
+            width: 15px;
+            height: 15px;
+            background-color: white;
+            border-radius: 50%;
+            margin-top: -35px;
+        }
+        #progress{
+            display: flex;
+            align-items:center;
+            justify-content:center;
+
+        }
+        .playbtn{
+            width: 20px;
+            height: 20px;
+            background-color: aquamarine;
+            background-image: url(./images/tubiao.png) -53px -88px;
+        }
+
+        .progressBar_1{
+            width: 320px;
+            height: 7px;
+            border-radius: 3px;
+            background-color: lightgray;
+        }
+        .progressBar_2{
+            width: 320px;
+            height: 7px;
+            border-radius: 3px;
+            background-color: yellow;
+        }
+        .btn{
+            background-color: orange;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <img class="kuwo" src=".\images\music.jpg">
+
+        <ul class="first_list">
+            <li>
+                <a href="#"><span></span>首页</a>
+            </li>
+            <li>
+                <a href="#">榜单</a>
+            </li>
+            <li>
+                <a href="#">歌手</a>
+            </li>
+        </ul>
+
+        <a class="app" href="#">下载酷我客户端</a>
+
+        <ul class="second_list">
+            <li>
+                <a href="#"><span></span>美女秀</a>
+            </li>
+            <li>
+                <a href="#"><span></span>酷我耳机</a>
+            </li>
+            <li>
+                <a href="#"><span></span>VIP会员</a>
+            </li>
+            <li>
+                <a href="#"><span></span>i听</a>
+            </li>
+        </ul>
+
+        <ul class="third_list">
+            <li>
+                <a href="#">更多服务</a>
+            </li>
+            <li>
+                <a href="#">登录</a>
+            </li>
+            <li>
+                <a href="#">^</a>
+            </li>
+        </ul>
+
+        <div class="search">
+            <img src=".\images\search.png">
+            <p class="find">找到好音乐</p>
+        </div>
+    </div>
+    <div id="music">
+        <div class="lyric">
+            
+        </div>
+        <div class="play">
+            <div class="record">
+                <div class="circle_1"></div>
+                <div class="xyy"></div>
+                <div class="circle_2"></div>
+                <div class="circle_3"></div>
+            </div>
+            <div class="progress">
+                <div class="playbtn"></div>
+                <div class="progressBar_1"></div>
+                <div class="progressBar_2"></div>
+                <div class="btn"></div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
