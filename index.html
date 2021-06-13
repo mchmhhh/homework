@@ -536,7 +536,7 @@
         </div>
         <div class="input">
             <img src="./images/xyy.jpg" class="profile">
-            <textarea>分享你的音乐见解</textarea>
+            <textarea placeholder="分享你的音乐见解"></textarea>
         </div>
         <div class="smile">
             <div class="number">已输入0个字</div>
@@ -638,7 +638,6 @@
     var second_floor = document.getElementsByClassName("second_floor")[0];
     var third_floor = document.getElementsByClassName("third_floor")[0];
     var username = document.getElementsByClassName("username")[0];
-    var mcomment = document.getElementsByClassName("mcomment")[0];
     var minner = document.getElementsByTagName("textarea")[0];
     var timer =  function () {
         var yy = new Date().getFullYear();
@@ -653,10 +652,11 @@
     var time = document.getElementsByClassName("time")[0];
     var datetime = timer();
     comment.onclick=function(){
+        var mcomment = document.getElementsByClassName("mcomment")[0];
         var inner = {
             "profile" : ""+profile.src,
             "username" : "mchmhhh",
-            "mcomment" : ""+minner.innerHTML,
+            "mcomment" : ""+minner.value,
             "time" : ""+datetime
         }
         var innerStr = JSON.stringify(inner);
